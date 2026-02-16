@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "dataInterval": {
+      "type": "string",
+      "description": "The time interval of the data",
+      "enum": [
+        "Day",
+        "Week",
+        "Month",
+        "Quarter",
+        "Year"
+      ]
+    },
+    "timePeriod": {
+      "type": "string",
+      "description": "The time period of the data"
+    },
+    "metricValues": {
+      "type": "array",
+      "description": "Calculated metric values for the interval and period",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the metric"
+          },
+          "value": {
+            "type": "number",
+            "description": "Value of the metric"
+          }
+        },
+        "required": [
+          "name",
+          "value"
+        ]
+      }
+    }
+  },
+  "required": [
+    "dataInterval",
+    "timePeriod",
+    "metricValues"
+  ]
+}
